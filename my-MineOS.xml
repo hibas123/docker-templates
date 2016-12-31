@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>MineOS</Name>
+  <Repository>hibas123/docker-mineos</Repository>
+  <Registry>https://registry.hub.docker.com/u/yujiod/minecraft-mineos/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Overview>MineOS is an easy to manage Minecraft Server. It has its on web interface to manage all aspects of the server.[br][br]&#xD;
+[b][span style='color: #E80000;']Directions:[/span][/b][br]&#xD;
+[b]/var/games/minecraft[/b] : set this path to where you wish all the Minecraft Server items to be stored. Should be you app folder.[br][br]&#xD;
+[b][span style='color: #E80000;']IMPORTANT - Open Advanced View to Set your PASSWORD!!![/b][/span][br][br]&#xD;
+</Overview>
+  <Category/>
+  <WebUI>https://[IP]:[PORT:8443]</WebUI>
+  <TemplateURL/>
+  <Icon>http://i.imgur.com/P6RRtHH.png</Icon>
+  <ExtraParams/>
+  <DateInstalled>1483201917</DateInstalled>
+  <Description>MineOS is an easy to manage Minecraft Server. It has its on web interface to manage all aspects of the server.[br][br]&#xD;
+[b][span style='color: #E80000;']Directions:[/span][/b][br]&#xD;
+[b]/var/games/minecraft[/b] : set this path to where you wish all the Minecraft Server items to be stored. Should be you app folder.[br][br]&#xD;
+[b][span style='color: #E80000;']IMPORTANT - Open Advanced View to Set your PASSWORD!!![/b][/span][br][br]&#xD;
+</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8443</HostPort>
+        <ContainerPort>8443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>25565</HostPort>
+        <ContainerPort>25565</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>25566-25600</HostPort>
+        <ContainerPort>25566-25600</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>15024</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mineos</HostDir>
+      <ContainerDir>/var/games/minecraft</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>minecraft</Value>
+      <Name>USER_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>minecraft</Value>
+      <Name>USER_NAME</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Host Port 1" Target="8443" Default="8443" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
+  <Config Name="Host Port 2" Target="25565" Default="25565" Mode="tcp" Description="Container Port: 25565" Type="Port" Display="always" Required="true" Mask="false">25565</Config>
+  <Config Name="Host Path 1" Target="/var/games/minecraft" Default="/mnt/user/appdata/mineos" Mode="rw" Description="Container Path: /var/games/minecraft" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mineos</Config>
+  <Config Name="Key 1" Target="USER_PASSWORD" Default="minecraft" Mode="" Description="Container Variable: PASSWORD" Type="Variable" Display="always" Required="false" Mask="false">minecraft</Config>
+  <Config Name="SERVER-PORTS" Target="25566-25600" Default="" Mode="tcp" Description="Container Port: 25566-25600" Type="Port" Display="always" Required="false" Mask="false">25566-25600</Config>
+  <Config Name="ssh" Target="22" Default="" Mode="tcp" Description="Container Port: 22" Type="Port" Display="always" Required="false" Mask="false">15024</Config>
+  <Config Name="username" Target="USER_NAME" Default="" Mode="" Description="Container Variable: USER_NAME" Type="Variable" Display="always" Required="false" Mask="false">minecraft</Config>
+</Container>
